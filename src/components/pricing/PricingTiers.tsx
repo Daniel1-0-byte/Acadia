@@ -73,9 +73,9 @@ export default function PricingTiers() {
 
             <div className="mb-8">
               <h4 className="text-sm font-bold text-brand-primary uppercase tracking-widest mb-2">{pack.name}</h4>
-              <div className="flex items-baseline gap-1">
-                <span className="text-4xl font-extrabold text-slate-900 tracking-tight">{pack.price}</span>
-                <span className="text-xs text-slate-400 font-medium">/ project</span>
+              <div className="flex flex-col items-baseline gap-0">
+                <span className="text-3xl font-extrabold text-slate-900 tracking-tight">{pack.price}</span>
+                <span className="text-[10px] text-slate-400 font-medium uppercase tracking-wider">/ project cost</span>
               </div>
               <p className="mt-4 text-xs text-slate-500 font-light leading-relaxed">
                 {pack.description}
