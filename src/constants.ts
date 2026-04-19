@@ -109,7 +109,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Sarah Jenkins',
     role: 'CEO',
     company: 'Urban Stitch',
-    quote: "Arcadia didn't just build a website; they engineered a growth engine. Our conversion rate increased by 45% within the first month of launch.",
+    quote: "Acadia didn't just build a website; they engineered a growth engine. Our conversion rate increased by 45% within the first month of launch.",
     avatar: 'https://picsum.photos/seed/sarah/100/100',
   },
   {

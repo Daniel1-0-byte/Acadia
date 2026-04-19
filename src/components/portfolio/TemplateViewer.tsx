@@ -34,11 +34,11 @@ export default function TemplateViewer({ item, onExit, onSelect }: TemplateViewe
 
         <div className="hidden md:flex items-center gap-6">
            <div className="px-3 py-1 rounded bg-slate-800 text-slate-400 text-[10px] font-mono uppercase">
-             Tier: <span className="text-brand-indigo font-bold">{item.tier}</span>
+             Tier: <span className="text-brand-primary font-bold">{item.tier}</span>
            </div>
            <button 
             onClick={onSelect}
-            className="bg-brand-indigo hover:bg-indigo-700 text-white px-4 py-1.5 rounded-lg text-xs font-bold transition-all shadow-lg shadow-indigo-500/20"
+            className="bg-brand-primary hover:bg-brand-primary-dark text-white px-4 py-1.5 rounded-lg text-xs font-bold transition-all shadow-lg shadow-brand-primary/20"
            >
              Inquire
            </button>
@@ -58,14 +58,14 @@ export default function TemplateViewer({ item, onExit, onSelect }: TemplateViewe
           
           <div className="flex items-center gap-8">
             <div className="hidden md:flex items-center gap-6 text-[10px] font-bold uppercase tracking-widest text-slate-400">
-              <span className="text-brand-indigo">Home</span>
+              <span className="text-brand-primary">Home</span>
               {(isStandard || isPremium) && <span>Services</span>}
               {(isStandard || isPremium) && <span>About</span>}
               {isPremium && <span>Products</span>}
             </div>
             <div className="flex items-center gap-4 text-slate-900">
-               {isPremium && <ShoppingCart size={18} className="cursor-pointer hover:text-brand-indigo transition-colors" />}
-               <Mail size={18} className="cursor-pointer hover:text-brand-indigo transition-colors" />
+               {isPremium && <ShoppingCart size={18} className="cursor-pointer hover:text-brand-primary transition-colors" />}
+               <Mail size={18} className="cursor-pointer hover:text-brand-primary transition-colors" />
             </div>
           </div>
         </nav>
@@ -77,7 +77,7 @@ export default function TemplateViewer({ item, onExit, onSelect }: TemplateViewe
             animate={{ opacity: 1, y: 0 }}
             className="max-w-4xl"
           >
-            <span className="text-[10px] font-bold text-brand-indigo uppercase tracking-[0.4em] mb-4 block">Selected Design: {item.category}</span>
+            <span className="text-[10px] font-bold text-brand-primary uppercase tracking-[0.4em] mb-4 block">Selected Design: {item.category}</span>
             <h1 className="text-4xl md:text-7xl font-black text-slate-900 tracking-tighter leading-[0.9] mb-8 uppercase italic underline decoration-slate-200 underline-offset-8">
                Modern Solutions <br /> For {item.category}
             </h1>
@@ -112,15 +112,15 @@ export default function TemplateViewer({ item, onExit, onSelect }: TemplateViewe
               {(isStandard || isPremium) ? (
                 <>
                   <div className="aspect-square bg-white rounded-3xl p-10 flex flex-col justify-center border border-slate-100 hover:shadow-2xl transition-shadow group">
-                    <Layout className="w-10 h-10 text-brand-indigo mb-6 group-hover:scale-110 transition-transform" />
+                    <Layout className="w-10 h-10 text-brand-primary mb-6 group-hover:scale-110 transition-transform" />
                     <h3 className="text-2xl font-bold tracking-tighter mb-4 text-slate-900">Service Architecture</h3>
                     <p className="text-sm text-slate-400 font-light leading-relaxed">Dynamic service listings with dedicated sub-pages for each category.</p>
                   </div>
-                  <div className="aspect-square bg-indigo-50 rounded-3xl p-10 flex flex-col border border-indigo-100 group">
-                    <Shield className="w-10 h-10 text-brand-indigo mb-6 group-hover:rotate-12 transition-transform" />
+                  <div className="aspect-square bg-brand-primary-light rounded-3xl p-10 flex flex-col border border-brand-primary-light group">
+                    <Shield className="w-10 h-10 text-brand-primary mb-6 group-hover:rotate-12 transition-transform" />
                     <div className="mt-auto">
                        <h3 className="text-2xl font-bold tracking-tighter mb-2 text-slate-900 italic">Enterprise Security</h3>
-                       <p className="text-sm text-brand-indigo font-medium uppercase tracking-widest text-[9px]">Included in Standard Pack</p>
+                       <p className="text-sm text-brand-primary font-medium uppercase tracking-widest text-[9px]">Included in Standard Pack</p>
                     </div>
                   </div>
                 </>
@@ -140,27 +140,27 @@ export default function TemplateViewer({ item, onExit, onSelect }: TemplateViewe
                className="mt-20 p-12 md:p-20 bg-slate-900 rounded-[3rem] text-white overflow-hidden relative"
              >
                 <div className="absolute top-0 right-0 p-12 opacity-10">
-                   <Zap className="w-64 h-64 text-brand-indigo" />
+                   <Zap className="w-64 h-64 text-brand-primary" />
                 </div>
                 
                 <div className="max-w-2xl relative z-10">
-                   <span className="text-[10px] font-bold text-brand-indigo uppercase tracking-[0.4em] mb-6 block font-mono">Premium Elite Features</span>
+                   <span className="text-[10px] font-bold text-brand-primary uppercase tracking-[0.4em] mb-6 block font-mono">Premium Elite Features</span>
                    <h2 className="text-4xl md:text-6xl font-black tracking-tighter mb-8 leading-none uppercase">Full E-Commerce <br /> & Automations.</h2>
                    
                    <div className="grid grid-cols-2 gap-8 mb-12">
                       <div className="space-y-2">
-                         <CreditCard className="w-8 h-8 text-indigo-400" />
+                         <CreditCard className="w-8 h-8 text-brand-primary" />
                          <div className="text-sm font-bold">Smart Checkout</div>
                          <p className="text-xs text-slate-400 leading-relaxed font-light">Integrated payment processors with 1-click buy sequences.</p>
                       </div>
                       <div className="space-y-2">
-                         <Cpu className="w-8 h-8 text-indigo-400" />
+                         <Cpu className="w-8 h-8 text-brand-primary" />
                          <div className="text-sm font-bold">Stock Automations</div>
                          <p className="text-xs text-slate-400 leading-relaxed font-light">Real-time inventory sync across all your digital channels.</p>
                       </div>
                    </div>
 
-                   <button className="px-10 py-5 bg-brand-indigo text-white rounded-2xl font-bold text-sm tracking-widest uppercase hover:bg-white hover:text-slate-900 transition-colors">
+                   <button className="px-10 py-5 bg-brand-primary text-white rounded-2xl font-bold text-sm tracking-widest uppercase hover:bg-white hover:text-slate-900 transition-colors">
                      View Merchant Dashboard
                    </button>
                 </div>
@@ -176,7 +176,7 @@ export default function TemplateViewer({ item, onExit, onSelect }: TemplateViewe
              <div className="flex gap-4">
                 <Globe className="text-slate-200" size={32} />
                 <Home className="text-slate-200" size={32} />
-                <Zap className="text-brand-indigo" size={32} />
+                <Zap className="text-brand-primary" size={32} />
              </div>
            </div>
         </div>
@@ -214,7 +214,7 @@ export default function TemplateViewer({ item, onExit, onSelect }: TemplateViewe
            
            <div className="mt-20 text-center border-t border-slate-50 pt-8">
               <p className="text-[10px] text-slate-300 font-mono tracking-widest uppercase">
-                Simulated Architecture by Arcadia Studio &copy; 2026
+                Simulated Architecture by Acadia Studio &copy; 2026
               </p>
            </div>
         </footer>

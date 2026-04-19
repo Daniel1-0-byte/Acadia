@@ -16,7 +16,7 @@ export default function About() {
             
             <div className="space-y-6 text-sm text-slate-500 font-light leading-relaxed">
               <p>
-                Arcadia exists at the intersection of high-technology and artisanal digital craft. We believe 
+                Acadia exists at the intersection of high-technology and artisanal digital craft. We believe 
                 that the architecture of an e-commerce platform should be as robust as a modern skyscraper 
                 yet as finely detailed as a bespoke timepiece.
               </p>
@@ -28,14 +28,14 @@ export default function About() {
 
             <div className="mt-12 space-y-6 border-t border-slate-200 pt-12">
               <div className="flex gap-4">
-                <div className="text-brand-indigo font-bold text-lg">01</div>
+                <div className="text-brand-primary font-bold text-lg">01</div>
                 <div>
                   <div className="text-xs font-bold text-slate-900 uppercase tracking-widest mb-1">Transparency</div>
                   <p className="text-[11px] text-slate-400">Open code, honest pricing, and clear milestones.</p>
                 </div>
               </div>
               <div className="flex gap-4">
-                <div className="text-brand-indigo font-bold text-lg">02</div>
+                <div className="text-brand-primary font-bold text-lg">02</div>
                 <div>
                   <div className="text-xs font-bold text-slate-900 uppercase tracking-widest mb-1">Scalability</div>
                   <p className="text-[11px] text-slate-400">Engineered to support growth from small shop to enterprise.</p>

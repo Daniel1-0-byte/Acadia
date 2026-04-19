@@ -53,8 +53,8 @@ export default function PortfolioSection() {
                 onClick={() => setActiveTier(t)}
                 className={`px-4 py-1.5 rounded-lg text-[10px] font-bold tracking-wider uppercase transition-all border ${
                   activeTier === t 
-                    ? 'bg-brand-indigo border-brand-indigo text-white shadow-lg shadow-indigo-500/20' 
-                    : 'bg-white border-slate-200 text-slate-400 hover:border-indigo-200'
+                    ? 'bg-brand-primary border-brand-primary text-white shadow-lg shadow-brand-primary/20' 
+                    : 'bg-white border-slate-200 text-slate-400 hover:border-brand-primary/30'
                 }`}
               >
                 {t}
@@ -74,7 +74,7 @@ export default function PortfolioSection() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.3 }}
-              className="group relative bg-white rounded-2xl overflow-hidden border border-slate-100 hover:border-indigo-200 transition-all hover:shadow-xl hover:shadow-slate-200/50"
+              className="group relative bg-white rounded-2xl overflow-hidden border border-slate-100 hover:border-brand-primary/20 transition-all hover:shadow-xl hover:shadow-slate-200/50"
             >
               <div className="aspect-[16/10] overflow-hidden">
                 <img
@@ -87,7 +87,7 @@ export default function PortfolioSection() {
 
               <div className="p-8">
                 <div className="flex items-center justify-between mb-4">
-                  <span className="px-2 py-1 rounded bg-indigo-50 text-brand-indigo text-[9px] uppercase font-bold tracking-widest">
+                  <span className="px-2 py-1 rounded bg-brand-primary-light text-brand-primary text-[9px] uppercase font-bold tracking-widest">
                     {item.tier}
                   </span>
                   <span className="text-slate-300 text-[10px] uppercase font-bold tracking-widest">{item.category}</span>
@@ -100,7 +100,7 @@ export default function PortfolioSection() {
                 <div className="space-y-2 border-t border-slate-50 pt-6">
                   {item.features.map(f => (
                     <div key={f} className="flex items-center gap-2 text-xs text-slate-600">
-                      <ChevronRight className="w-3 h-3 text-brand-indigo" />
+                      <ChevronRight className="w-3 h-3 text-brand-primary" />
                       {f}
                     </div>
                   ))}
@@ -108,7 +108,7 @@ export default function PortfolioSection() {
 
                 <button 
                   onClick={() => setSelectedProject(item)}
-                  className="mt-8 w-full py-3 bg-slate-50 group-hover:bg-brand-indigo text-slate-900 group-hover:text-white rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2"
+                  className="mt-8 w-full py-3 bg-slate-50 group-hover:bg-brand-primary text-slate-900 group-hover:text-white rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2"
                 >
                   Explore Case Study
                   <ArrowUpRight size={14} />
@@ -124,7 +124,7 @@ export default function PortfolioSection() {
           <p className="text-lg text-slate-400 font-light mb-4 italic">No matching architectural designs found.</p>
           <button 
             onClick={() => { setActiveCategory('All'); setActiveTier('All'); }}
-            className="text-brand-indigo hover:underline font-bold text-sm tracking-wide"
+            className="text-brand-primary hover:underline font-bold text-sm tracking-wide"
           >
             Clear All Selection
           </button>
@@ -178,7 +178,7 @@ export default function PortfolioSection() {
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.2 }}
                         >
-                          <span className="text-[10px] font-bold text-brand-indigo uppercase tracking-[0.4em] mb-3 block">Digital Architecture Preview</span>
+                          <span className="text-[10px] font-bold text-brand-primary uppercase tracking-[0.4em] mb-3 block">Digital Architecture Preview</span>
                           <h5 className="text-4xl md:text-6xl font-black text-white tracking-tighter mb-4 leading-none uppercase">
                             {selectedProject.title}
                           </h5>
@@ -204,7 +204,7 @@ export default function PortfolioSection() {
                           <div className="space-y-4">
                             <div className="flex items-center gap-4">
                                <div className="w-12 h-12 rounded-full border border-slate-100 bg-slate-50 flex items-center justify-center shrink-0">
-                                  <Monitor className="w-5 h-5 text-brand-indigo" />
+                                  <Monitor className="w-5 h-5 text-brand-primary" />
                                </div>
                                <div>
                                   <div className="text-xs font-bold text-slate-900 uppercase">Fluid Layout</div>
@@ -213,7 +213,7 @@ export default function PortfolioSection() {
                             </div>
                             <div className="flex items-center gap-4">
                                <div className="w-12 h-12 rounded-full border border-slate-100 bg-slate-50 flex items-center justify-center shrink-0">
-                                  <Globe className="w-5 h-5 text-brand-indigo" />
+                                  <Globe className="w-5 h-5 text-brand-primary" />
                                </div>
                                <div>
                                   <div className="text-xs font-bold text-slate-900 uppercase">Micro-Interactions</div>
@@ -231,7 +231,7 @@ export default function PortfolioSection() {
                                 <div className="flex gap-2">
                                    <div className="w-10 h-10 rounded-lg bg-orange-900 border border-white/10 shadow-lg" style={{ backgroundColor: selectedProject.category === 'Restaurants' ? '#7c2d12' : '#0f172a' }}></div>
                                    <div className="w-10 h-10 rounded-lg bg-slate-50 border border-slate-200"></div>
-                                   <div className="w-10 h-10 rounded-lg bg-brand-indigo shadow-lg shadow-indigo-500/20"></div>
+                                   <div className="w-10 h-10 rounded-lg bg-brand-primary shadow-lg shadow-brand-primary/20"></div>
                                 </div>
                              </div>
                              <div className="ml-auto text-right">
@@ -255,11 +255,11 @@ export default function PortfolioSection() {
                             <div className="grid grid-cols-2 gap-4">
                                <div className="p-6 bg-slate-900 rounded-3xl text-white shadow-2xl shadow-slate-900/20">
                                   <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2">Performance</div>
-                                  <div className="text-3xl font-black text-brand-indigo tracking-tight">99%</div>
+                                  <div className="text-3xl font-black text-brand-primary tracking-tight">99%</div>
                                </div>
-                               <div className="p-6 bg-indigo-50 rounded-3xl">
+                               <div className="p-6 bg-brand-primary-light rounded-3xl">
                                   <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Stability</div>
-                                  <div className="text-3xl font-black text-brand-indigo tracking-tight">99.9</div>
+                                  <div className="text-3xl font-black text-brand-primary tracking-tight">99.9</div>
                                </div>
                             </div>
                          </div>
@@ -271,7 +271,7 @@ export default function PortfolioSection() {
                 <div className="w-full lg:w-[400px] p-8 md:p-12 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-slate-100">
                   <div>
                     <div className="flex items-center gap-2 mb-6">
-                      <span className="px-3 py-1 bg-indigo-50 text-brand-indigo text-[10px] font-bold rounded-full uppercase tracking-widest">
+                      <span className="px-3 py-1 bg-brand-primary-light text-brand-primary text-[10px] font-bold rounded-full uppercase tracking-widest">
                         {selectedProject.tier} Edition
                       </span>
                     </div>
@@ -286,7 +286,7 @@ export default function PortfolioSection() {
                           {selectedProject.features.map(f => (
                             <li key={f} className="flex items-start gap-3">
                                <div className="w-5 h-5 rounded-full bg-slate-50 flex items-center justify-center shrink-0">
-                                  <ChevronRight className="w-3 h-3 text-brand-indigo" />
+                                  <ChevronRight className="w-3 h-3 text-brand-primary" />
                                </div>
                                <span className="text-xs text-slate-600 font-medium">{f}</span>
                             </li>
@@ -299,7 +299,7 @@ export default function PortfolioSection() {
                      <a 
                       href="#contact" 
                       onClick={() => setSelectedProject(null)}
-                      className="w-full py-5 bg-brand-indigo text-white rounded-2xl flex items-center justify-center gap-3 font-bold text-sm shadow-xl shadow-indigo-500/20 hover:bg-indigo-700 transition-all"
+                      className="w-full py-5 bg-brand-primary text-white rounded-2xl flex items-center justify-center gap-3 font-bold text-sm shadow-xl shadow-brand-primary/20 hover:bg-brand-primary-dark transition-all"
                     >
                        Engineer This For Me
                        <ArrowUpRight size={18} />

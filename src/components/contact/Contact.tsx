@@ -25,16 +25,16 @@ export default function Contact() {
             for your next digital venture.
           </p>
 
-          <div className="space-y-6">
+              <div className="space-y-6">
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-lg bg-indigo-50 flex items-center justify-center shrink-0">
-                <Mail size={18} className="text-brand-indigo" />
+              <div className="w-10 h-10 rounded-lg bg-brand-primary-light flex items-center justify-center shrink-0">
+                <Mail size={18} className="text-brand-primary" />
               </div>
-              <div className="text-xs font-bold text-slate-900 tracking-wide uppercase">partnerships@arcadia.dev</div>
+              <div className="text-xs font-bold text-slate-900 tracking-wide uppercase">partnerships@acadia.dev</div>
             </div>
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-lg bg-indigo-50 flex items-center justify-center shrink-0">
-                <MapPin size={18} className="text-brand-indigo" />
+              <div className="w-10 h-10 rounded-lg bg-brand-primary-light flex items-center justify-center shrink-0">
+                <MapPin size={18} className="text-brand-primary" />
               </div>
               <div className="text-xs font-bold text-slate-900 tracking-wide uppercase">Creative Labs, Silicon Valley, CA</div>
             </div>
@@ -49,14 +49,14 @@ export default function Contact() {
         >
           {status === 'success' ? (
             <div className="h-full flex flex-col items-center justify-center text-center py-10">
-              <div className="w-16 h-16 bg-indigo-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-indigo-500/20">
+              <div className="w-16 h-16 bg-brand-primary rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-brand-primary/20">
                 <Send size={24} className="text-white" />
               </div>
               <h4 className="text-xl font-bold text-slate-900 mb-2">Request Transmitted</h4>
               <p className="text-slate-500 text-sm">We'll review your project details and respond within 24 hours.</p>
               <button 
                 onClick={() => setStatus('idle')}
-                className="mt-8 text-brand-indigo hover:underline text-xs font-bold uppercase tracking-widest"
+                className="mt-8 text-brand-primary hover:underline text-xs font-bold uppercase tracking-widest"
               >
                 Send New Message
               </button>
@@ -69,7 +69,7 @@ export default function Contact() {
                   <input 
                     required
                     type="text" 
-                    className="w-full bg-white border border-slate-200 rounded-xl px-5 py-3 text-sm text-slate-900 focus:outline-none focus:border-brand-indigo transition-colors"
+                    className="w-full bg-white border border-slate-200 rounded-xl px-5 py-3 text-sm text-slate-900 focus:outline-none focus:border-brand-primary transition-colors"
                     placeholder="Acme Corp"
                   />
                 </div>
@@ -78,7 +78,7 @@ export default function Contact() {
                   <input 
                     required
                     type="email" 
-                    className="w-full bg-white border border-slate-200 rounded-xl px-5 py-3 text-sm text-slate-900 focus:outline-none focus:border-brand-indigo transition-colors"
+                    className="w-full bg-white border border-slate-200 rounded-xl px-5 py-3 text-sm text-slate-900 focus:outline-none focus:border-brand-primary transition-colors"
                     placeholder="jane@acme.com"
                   />
                 </div>
@@ -86,7 +86,7 @@ export default function Contact() {
               <div className="space-y-2">
                 <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest pl-1">Inquiry Type</label>
                 <select 
-                  className="w-full bg-white border border-slate-200 rounded-xl px-5 py-3 text-sm text-slate-900 focus:outline-none focus:border-brand-indigo transition-colors appearance-none cursor-pointer"
+                  className="w-full bg-white border border-slate-200 rounded-xl px-5 py-3 text-sm text-slate-900 focus:outline-none focus:border-brand-primary transition-colors appearance-none cursor-pointer"
                 >
                   <option>E-commerce Solution</option>
                   <option>Platform Optimization</option>
@@ -98,14 +98,14 @@ export default function Contact() {
                 <textarea 
                   required
                   rows={4}
-                  className="w-full bg-white border border-slate-200 rounded-xl px-5 py-3 text-sm text-slate-900 focus:outline-none focus:border-brand-indigo transition-colors"
+                  className="w-full bg-white border border-slate-200 rounded-xl px-5 py-3 text-sm text-slate-900 focus:outline-none focus:border-brand-primary transition-colors"
                   placeholder="Tell us about your mission..."
                 />
               </div>
               <button 
                 type="submit"
                 disabled={status === 'sending'}
-                className="w-full py-4 bg-slate-900 hover:bg-brand-indigo text-white rounded-xl text-xs font-bold uppercase tracking-widest transition-all disabled:opacity-50 flex items-center justify-center gap-3 mt-4"
+                className="w-full py-4 bg-slate-900 hover:bg-brand-primary text-white rounded-xl text-xs font-bold uppercase tracking-widest transition-all disabled:opacity-50 flex items-center justify-center gap-3 mt-4"
               >
                 {status === 'sending' ? 'Transmitting...' : 'Submit Request'}
               </button>

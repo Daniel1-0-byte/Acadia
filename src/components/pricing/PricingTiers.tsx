@@ -4,7 +4,7 @@ import { Check } from 'lucide-react';
 const PACKS = [
   {
     name: 'Starter Pack',
-    price: '$1,499',
+    price: 'GH₵ 500',
     description: 'Perfect for small local businesses looking to establish a digital presence.',
     features: [
       'Custom Landing Page',
@@ -17,7 +17,7 @@ const PACKS = [
   },
   {
     name: 'Standard Pack',
-    price: '$3,999',
+    price: 'GH₵ 700',
     description: 'Comprehensive solution for growing shops needing e-commerce features.',
     features: [
       'Full E-commerce Engine',
@@ -30,7 +30,7 @@ const PACKS = [
   },
   {
     name: 'Premium Pack',
-    price: '$8,500+',
+    price: 'GH₵ 1,000',
     description: 'Bespoke enterprise platforms with advanced custom integrations.',
     features: [
       'Custom API Integrations',
@@ -61,18 +61,18 @@ export default function PricingTiers() {
             viewport={{ once: true }}
             className={`relative p-10 rounded-[2rem] border transition-all ${
               pack.popular 
-                ? 'bg-indigo-50 border-indigo-200 shadow-xl shadow-indigo-500/5' 
+                ? 'bg-brand-primary-light border-brand-primary/20 shadow-xl shadow-brand-primary/5' 
                 : 'bg-white border-slate-100 hover:border-slate-300'
             }`}
           >
             {pack.popular && (
-              <div className="absolute -top-3 right-6 px-3 py-1 bg-brand-indigo text-white text-[9px] font-bold rounded-full tracking-widest uppercase">
+              <div className="absolute -top-3 right-6 px-3 py-1 bg-brand-primary text-white text-[9px] font-bold rounded-full tracking-widest uppercase">
                 Popular
               </div>
             )}
 
             <div className="mb-8">
-              <h4 className="text-sm font-bold text-brand-indigo uppercase tracking-widest mb-2">{pack.name}</h4>
+              <h4 className="text-sm font-bold text-brand-primary uppercase tracking-widest mb-2">{pack.name}</h4>
               <div className="flex items-baseline gap-1">
                 <span className="text-4xl font-extrabold text-slate-900 tracking-tight">{pack.price}</span>
                 <span className="text-xs text-slate-400 font-medium">/ project</span>
@@ -86,7 +86,7 @@ export default function PricingTiers() {
               {pack.features.map((feature) => (
                 <li key={feature} className="flex items-center gap-3">
                   <div className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 ${pack.popular ? 'bg-white' : 'bg-slate-50'}`}>
-                    <Check className="w-3 h-3 text-brand-indigo" />
+                    <Check className="w-3 h-3 text-brand-primary" />
                   </div>
                   <span className="text-xs text-slate-600">{feature}</span>
                 </li>
@@ -97,7 +97,7 @@ export default function PricingTiers() {
               href="#contact"
               className={`w-full py-4 rounded-xl text-xs font-bold uppercase tracking-widest transition-all flex items-center justify-center ${
                 pack.popular 
-                  ? 'bg-brand-indigo text-white hover:bg-indigo-700 shadow-lg shadow-indigo-500/20' 
+                  ? 'bg-brand-primary text-white hover:bg-brand-primary-dark shadow-lg shadow-brand-primary/20' 
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
               }`}
             >

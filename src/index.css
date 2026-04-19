@@ -7,7 +7,9 @@
   
   --color-brand-sidebar: #0f172a;
   --color-brand-bg: #f8fafc;
-  --color-brand-indigo: #6366f1;
+  --color-brand-primary: #16D4D4;
+  --color-brand-primary-light: #E6FBFB;
+  --color-brand-primary-dark: #0EB1B1;
 }
 
 @layer base {

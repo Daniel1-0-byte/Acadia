@@ -22,7 +22,7 @@ export default function Testimonials() {
           >
             <div>
               <div className="mb-8">
-                <Quote className="w-8 h-8 text-indigo-100 group-hover:text-brand-indigo transition-colors" />
+                <Quote className="w-8 h-8 text-brand-primary-light group-hover:text-brand-primary transition-colors" />
               </div>
               <p className="text-slate-600 italic font-light leading-relaxed mb-10 text-sm md:text-base">
                 "{testimonial.quote}"
@@ -39,7 +39,7 @@ export default function Testimonials() {
               <div>
                 <div className="text-sm font-bold text-slate-900">{testimonial.name}</div>
                 <div className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">
-                  {testimonial.role} <span className="text-brand-indigo">•</span> {testimonial.company}
+                   {testimonial.role} <span className="text-brand-primary">•</span> {testimonial.company}
                 </div>
               </div>
             </div>

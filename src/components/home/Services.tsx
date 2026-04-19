@@ -22,10 +22,10 @@ export default function Services() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
-              className="group p-8 rounded-2xl bg-slate-50 border border-slate-200 hover:border-brand-indigo/30 transition-all hover:bg-white hover:shadow-xl hover:shadow-indigo-500/5"
+              className="group p-8 rounded-2xl bg-slate-50 border border-slate-200 hover:border-brand-primary/30 transition-all hover:bg-white hover:shadow-xl hover:shadow-brand-primary/5"
             >
-              <div className="w-12 h-12 rounded-xl bg-indigo-50 flex items-center justify-center mb-6 group-hover:bg-brand-indigo transition-colors">
-                <IconComponent className="w-6 h-6 text-brand-indigo group-hover:text-white" />
+              <div className="w-12 h-12 rounded-xl bg-brand-primary-light flex items-center justify-center mb-6 group-hover:bg-brand-primary transition-colors">
+                <IconComponent className="w-6 h-6 text-brand-primary group-hover:text-white" />
               </div>
               <h4 className="text-lg font-bold text-slate-900 mb-3">{service.title}</h4>
               <p className="text-slate-500 text-sm leading-relaxed font-light">

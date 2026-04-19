@@ -41,8 +41,8 @@ export default function Sidebar() {
       `}>
         <div className="mb-12">
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-8 h-8 bg-brand-indigo rounded-lg flex items-center justify-center font-bold text-lg">A</div>
-            <h1 className="text-2xl font-bold tracking-tight uppercase">Arcadia</h1>
+            <div className="w-8 h-8 bg-brand-primary rounded-lg flex items-center justify-center font-bold text-lg">A</div>
+            <h1 className="text-2xl font-bold tracking-tight uppercase">Acadia</h1>
           </div>
           <p className="text-slate-400 text-[10px] font-mono tracking-wider">DIGITAL ARCHITECTURE STUDIO</p>
         </div>
@@ -59,7 +59,7 @@ export default function Sidebar() {
                       onClick={() => setIsOpen(false)}
                       className="text-slate-400 hover:text-white transition-colors flex items-center gap-2 group"
                     >
-                      {link.icon && <span className="w-1.5 h-1.5 rounded-full bg-brand-indigo group-hover:scale-125 transition-transform"></span>}
+                      {link.icon && <span className="w-1.5 h-1.5 rounded-full bg-brand-primary group-hover:scale-125 transition-transform"></span>}
                       {link.name}
                     </a>
                   </li>
@@ -76,7 +76,7 @@ export default function Sidebar() {
           </p>
           <a 
             href="#contact" 
-            className="mt-6 flex items-center justify-center gap-2 w-full py-2 bg-brand-indigo hover:bg-indigo-500 text-white rounded-lg text-xs font-bold transition-all"
+            className="mt-6 flex items-center justify-center gap-2 w-full py-2 bg-brand-primary hover:bg-brand-primary-dark text-white rounded-lg text-xs font-bold transition-all"
           >
             <Mail size={14} />
             Connect With Us

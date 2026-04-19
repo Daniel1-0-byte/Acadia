@@ -14,13 +14,13 @@ export default function Hero() {
           Premium Web <br /> Development.
         </h2>
         <p className="text-slate-500 text-lg md:text-xl max-w-xl font-light leading-relaxed mb-10">
-          Arcadia builds robust, scalable e-commerce solutions tailored for specialized industries that demand precision and performance.
+          Acadia builds robust, scalable e-commerce solutions tailored for specialized industries that demand precision and performance.
         </p>
 
         <div className="flex flex-wrap gap-4">
           <a 
             href="#pricing"
-            className="px-8 py-4 bg-slate-900 text-white rounded-xl font-bold transition-all hover:bg-brand-indigo flex items-center gap-2 group text-sm"
+            className="px-8 py-4 bg-slate-900 text-white rounded-xl font-bold transition-all hover:bg-brand-primary flex items-center gap-2 group text-sm"
           >
             Select A Package
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
