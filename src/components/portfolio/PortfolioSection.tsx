@@ -2,12 +2,14 @@ import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { PORTFOLIO } from '../../constants';
 import { Category, Tier, PortfolioItem } from '../../types';
-import { ChevronRight, ArrowUpRight, X, ExternalLink, Smartphone, Monitor, Globe } from 'lucide-react';
+import { ChevronRight, ArrowUpRight, X, ExternalLink, Smartphone, Monitor, Globe, LayoutTemplate } from 'lucide-react';
+import TemplateViewer from './TemplateViewer';
 
 export default function PortfolioSection() {
   const [activeCategory, setActiveCategory] = useState<Category | 'All'>('All');
   const [activeTier, setActiveTier] = useState<Tier | 'All'>('All');
   const [selectedProject, setSelectedProject] = useState<PortfolioItem | null>(null);
+  const [viewMode, setViewMode] = useState<'specs' | 'template'>('specs');
 
   const categories: (Category | 'All')[] = ['All', 'Restaurants', 'Groceries', 'Electrical', 'Mechanical', 'Clothing'];
   const tiers: (Tier | 'All')[] = ['All', 'Starter', 'Standard', 'Premium'];
@@ -145,15 +147,23 @@ export default function PortfolioSection() {
               className="bg-white w-full max-w-6xl rounded-[3rem] shadow-2xl overflow-hidden relative min-h-[80vh] flex flex-col"
             >
               <button 
-                onClick={() => setSelectedProject(null)}
-                className="absolute top-8 right-8 z-10 w-12 h-12 bg-slate-900 text-white rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-xl"
+                onClick={() => { setSelectedProject(null); setViewMode('specs'); }}
+                className="absolute top-8 right-8 z-[120] w-12 h-12 bg-slate-900 text-white rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-xl"
               >
                 <X size={20} />
               </button>
 
-              <div className="flex flex-col lg:flex-row h-full flex-1">
-                {/* Visual Preview Side */}
-                  <div className="flex-1 bg-white p-0 overflow-y-auto flex flex-col">
+              <AnimatePresence mode="wait">
+                {viewMode === 'specs' ? (
+                  <motion.div 
+                    key="specs"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 20 }}
+                    className="flex flex-col lg:flex-row h-full flex-1"
+                  >
+                    {/* Visual Preview Side */}
+                    <div className="flex-1 bg-white p-0 overflow-y-auto flex flex-col">
                     {/* Immersive Visual Header */}
                     <div className="relative h-[400px] bg-slate-900 overflow-hidden group/hero shrink-0">
                       <img 
@@ -295,6 +305,13 @@ export default function PortfolioSection() {
                        <ArrowUpRight size={18} />
                      </a>
                      <button 
+                       onClick={() => setViewMode('template')}
+                       className="w-full py-4 bg-slate-100 text-slate-900 rounded-2xl flex items-center justify-center gap-3 font-bold text-xs uppercase tracking-widest hover:bg-slate-200 transition-all border border-slate-200"
+                     >
+                        <LayoutTemplate size={16} />
+                        View Interactive Template
+                     </button>
+                     <button 
                       onClick={() => setSelectedProject(null)}
                       className="w-full py-4 text-slate-400 hover:text-slate-600 transition-colors bg-slate-50 hover:bg-slate-100 rounded-2xl font-bold text-xs uppercase tracking-widest"
                     >
@@ -307,7 +324,23 @@ export default function PortfolioSection() {
                      </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
+                ) : (
+                  <motion.div
+                    key="template"
+                    initial={{ opacity: 0, scale: 1.05 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    className="flex-1 relative"
+                  >
+                    <TemplateViewer 
+                      item={selectedProject} 
+                      onExit={() => setViewMode('specs')}
+                      onSelect={() => { setSelectedProject(null); setViewMode('specs'); window.location.hash = 'contact'; }}
+                    />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
           </motion.div>
         )}
