@@ -45,7 +45,7 @@ const PACKS = [
 
 export default function PricingTiers() {
   return (
-    <section className="p-10 md:p-16 bg-white border-t border-slate-50">
+    <section id="pricing" className="p-10 md:p-16 bg-white border-t border-slate-50">
       <div className="mb-16">
         <h2 className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.3em] mb-4">Investment</h2>
         <h3 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">Service Packages.</h3>
@@ -93,13 +93,16 @@ export default function PricingTiers() {
               ))}
             </ul>
 
-            <button className={`w-full py-4 rounded-xl text-xs font-bold uppercase tracking-widest transition-all ${
-              pack.popular 
-                ? 'bg-brand-indigo text-white hover:bg-indigo-700 shadow-lg shadow-indigo-500/20' 
-                : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-            }`}>
+            <a 
+              href="#contact"
+              className={`w-full py-4 rounded-xl text-xs font-bold uppercase tracking-widest transition-all flex items-center justify-center ${
+                pack.popular 
+                  ? 'bg-brand-indigo text-white hover:bg-indigo-700 shadow-lg shadow-indigo-500/20' 
+                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+              }`}
+            >
               Select {pack.name.split(' ')[0]}
-            </button>
+            </a>
           </motion.div>
         ))}
       </div>

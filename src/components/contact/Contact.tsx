@@ -103,6 +103,7 @@ export default function Contact() {
                 />
               </div>
               <button 
+                type="submit"
                 disabled={status === 'sending'}
                 className="w-full py-4 bg-slate-900 hover:bg-brand-indigo text-white rounded-xl text-xs font-bold uppercase tracking-widest transition-all disabled:opacity-50 flex items-center justify-center gap-3 mt-4"
               >

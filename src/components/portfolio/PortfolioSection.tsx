@@ -1,12 +1,13 @@
 import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { PORTFOLIO } from '../../constants';
-import { Category, Tier } from '../../types';
-import { ChevronRight, ArrowUpRight } from 'lucide-react';
+import { Category, Tier, PortfolioItem } from '../../types';
+import { ChevronRight, ArrowUpRight, X, ExternalLink, Smartphone, Monitor, Globe } from 'lucide-react';
 
 export default function PortfolioSection() {
   const [activeCategory, setActiveCategory] = useState<Category | 'All'>('All');
   const [activeTier, setActiveTier] = useState<Tier | 'All'>('All');
+  const [selectedProject, setSelectedProject] = useState<PortfolioItem | null>(null);
 
   const categories: (Category | 'All')[] = ['All', 'Restaurants', 'Groceries', 'Electrical', 'Mechanical', 'Clothing'];
   const tiers: (Tier | 'All')[] = ['All', 'Starter', 'Standard', 'Premium'];
@@ -103,7 +104,10 @@ export default function PortfolioSection() {
                   ))}
                 </div>
 
-                <button className="mt-8 w-full py-3 bg-slate-50 group-hover:bg-brand-indigo text-slate-900 group-hover:text-white rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2">
+                <button 
+                  onClick={() => setSelectedProject(item)}
+                  className="mt-8 w-full py-3 bg-slate-50 group-hover:bg-brand-indigo text-slate-900 group-hover:text-white rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2"
+                >
                   Explore Case Study
                   <ArrowUpRight size={14} />
                 </button>
@@ -124,6 +128,190 @@ export default function PortfolioSection() {
           </button>
         </div>
       )}
+
+      {/* Project Preview Overlay */}
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] bg-slate-900/40 backdrop-blur-xl p-4 md:p-10 flex items-center justify-center overflow-y-auto"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 100, scale: 0.9 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 100, scale: 0.9 }}
+              className="bg-white w-full max-w-6xl rounded-[3rem] shadow-2xl overflow-hidden relative min-h-[80vh] flex flex-col"
+            >
+              <button 
+                onClick={() => setSelectedProject(null)}
+                className="absolute top-8 right-8 z-10 w-12 h-12 bg-slate-900 text-white rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-xl"
+              >
+                <X size={20} />
+              </button>
+
+              <div className="flex flex-col lg:flex-row h-full flex-1">
+                {/* Visual Preview Side */}
+                  <div className="flex-1 bg-white p-0 overflow-y-auto flex flex-col">
+                    {/* Immersive Visual Header */}
+                    <div className="relative h-[400px] bg-slate-900 overflow-hidden group/hero shrink-0">
+                      <img 
+                        src={selectedProject.image} 
+                        alt="Immersive Preview" 
+                        className="w-full h-full object-cover opacity-60 group-hover/hero:scale-110 transition-transform duration-[3000ms]"
+                        referrerPolicy="no-referrer"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent flex flex-col justify-end p-12">
+                        <motion.div
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.2 }}
+                        >
+                          <span className="text-[10px] font-bold text-brand-indigo uppercase tracking-[0.4em] mb-3 block">Digital Architecture Preview</span>
+                          <h5 className="text-4xl md:text-6xl font-black text-white tracking-tighter mb-4 leading-none uppercase">
+                            {selectedProject.title}
+                          </h5>
+                          <div className="flex items-center gap-6">
+                            <div className="flex items-center gap-2">
+                              <Globe size={14} className="text-slate-400" />
+                              <span className="text-[10px] font-mono text-slate-300 uppercase tracking-widest">Live Experience</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <Monitor size={14} className="text-slate-400" />
+                              <span className="text-[10px] font-mono text-slate-300 uppercase tracking-widest">Optimized Core</span>
+                            </div>
+                          </div>
+                        </motion.div>
+                      </div>
+                    </div>
+
+                    <div className="p-8 md:p-12">
+                      {/* Visual Aesthetic Summary */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+                        <div>
+                          <h6 className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-6">Atmosphere & Mood</h6>
+                          <div className="space-y-4">
+                            <div className="flex items-center gap-4">
+                               <div className="w-12 h-12 rounded-full border border-slate-100 bg-slate-50 flex items-center justify-center shrink-0">
+                                  <Monitor className="w-5 h-5 text-brand-indigo" />
+                               </div>
+                               <div>
+                                  <div className="text-xs font-bold text-slate-900 uppercase">Fluid Layout</div>
+                                  <p className="text-[11px] text-slate-400">Adaptive grids that shift seamlessly across breakpoints.</p>
+                               </div>
+                            </div>
+                            <div className="flex items-center gap-4">
+                               <div className="w-12 h-12 rounded-full border border-slate-100 bg-slate-50 flex items-center justify-center shrink-0">
+                                  <Globe className="w-5 h-5 text-brand-indigo" />
+                               </div>
+                               <div>
+                                  <div className="text-xs font-bold text-slate-900 uppercase">Micro-Interactions</div>
+                                  <p className="text-[11px] text-slate-400">Thoughtful animations that guide user attention.</p>
+                               </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div>
+                          <h6 className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-6">Crafted Elements</h6>
+                          <div className="flex gap-4 items-end">
+                             <div className="space-y-2">
+                                <div className="text-[10px] text-slate-400 uppercase tracking-widest font-mono">Palette</div>
+                                <div className="flex gap-2">
+                                   <div className="w-10 h-10 rounded-lg bg-orange-900 border border-white/10 shadow-lg" style={{ backgroundColor: selectedProject.category === 'Restaurants' ? '#7c2d12' : '#0f172a' }}></div>
+                                   <div className="w-10 h-10 rounded-lg bg-slate-50 border border-slate-200"></div>
+                                   <div className="w-10 h-10 rounded-lg bg-brand-indigo shadow-lg shadow-indigo-500/20"></div>
+                                </div>
+                             </div>
+                             <div className="ml-auto text-right">
+                                <div className="text-[10px] text-slate-400 uppercase tracking-widest font-mono mb-2">Typography</div>
+                                <div className="text-2xl font-black text-slate-900 tracking-tighter leading-none italic uppercase">Inter / JB Mono</div>
+                             </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Technical Specification Section (Moved Down) */}
+                      <div className="border-t border-slate-100 pt-16">
+                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                            <div className="space-y-6">
+                               <h5 className="text-2xl font-extrabold text-slate-900 tracking-tight">Technical Specification</h5>
+                               <p className="text-sm text-slate-500 font-light leading-relaxed">
+                                  Optimized for the {selectedProject.category} market, this platform utilizes high-concurrency architecture 
+                                  to manage peak traffic surges while maintaining aesthetic integrity.
+                               </p>
+                            </div>
+                            <div className="grid grid-cols-2 gap-4">
+                               <div className="p-6 bg-slate-900 rounded-3xl text-white shadow-2xl shadow-slate-900/20">
+                                  <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2">Performance</div>
+                                  <div className="text-3xl font-black text-brand-indigo tracking-tight">99%</div>
+                               </div>
+                               <div className="p-6 bg-indigo-50 rounded-3xl">
+                                  <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Stability</div>
+                                  <div className="text-3xl font-black text-brand-indigo tracking-tight">99.9</div>
+                               </div>
+                            </div>
+                         </div>
+                      </div>
+                    </div>
+                  </div>
+
+                {/* Project Details Side */}
+                <div className="w-full lg:w-[400px] p-8 md:p-12 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-slate-100">
+                  <div>
+                    <div className="flex items-center gap-2 mb-6">
+                      <span className="px-3 py-1 bg-indigo-50 text-brand-indigo text-[10px] font-bold rounded-full uppercase tracking-widest">
+                        {selectedProject.tier} Edition
+                      </span>
+                    </div>
+                    <h4 className="text-4xl font-extrabold text-slate-900 tracking-tighter mb-4 leading-none">{selectedProject.title}</h4>
+                    <p className="text-sm text-slate-500 font-light leading-relaxed mb-8">
+                       Designed for market leaders in the {selectedProject.category} sector. {selectedProject.description}
+                    </p>
+
+                    <div className="space-y-6 border-t border-slate-100 pt-8">
+                       <h5 className="text-xs font-bold text-slate-900 uppercase tracking-widest">Integrated Features</h5>
+                       <ul className="grid grid-cols-1 gap-4">
+                          {selectedProject.features.map(f => (
+                            <li key={f} className="flex items-start gap-3">
+                               <div className="w-5 h-5 rounded-full bg-slate-50 flex items-center justify-center shrink-0">
+                                  <ChevronRight className="w-3 h-3 text-brand-indigo" />
+                               </div>
+                               <span className="text-xs text-slate-600 font-medium">{f}</span>
+                            </li>
+                          ))}
+                       </ul>
+                    </div>
+                  </div>
+
+                  <div className="mt-12 space-y-3">
+                     <a 
+                      href="#contact" 
+                      onClick={() => setSelectedProject(null)}
+                      className="w-full py-5 bg-brand-indigo text-white rounded-2xl flex items-center justify-center gap-3 font-bold text-sm shadow-xl shadow-indigo-500/20 hover:bg-indigo-700 transition-all"
+                    >
+                       Engineer This For Me
+                       <ArrowUpRight size={18} />
+                     </a>
+                     <button 
+                      onClick={() => setSelectedProject(null)}
+                      className="w-full py-4 text-slate-400 hover:text-slate-600 transition-colors bg-slate-50 hover:bg-slate-100 rounded-2xl font-bold text-xs uppercase tracking-widest"
+                    >
+                       Return to Gallery
+                     </button>
+                     <div className="flex items-center justify-center gap-6 text-slate-300 pt-4">
+                        <Monitor size={14} />
+                        <Smartphone size={14} />
+                        <Globe size={14} />
+                     </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

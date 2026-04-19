@@ -18,13 +18,19 @@ export default function Hero() {
         </p>
 
         <div className="flex flex-wrap gap-4">
-          <button className="px-8 py-4 bg-slate-900 text-white rounded-xl font-bold transition-all hover:bg-brand-indigo flex items-center gap-2 group text-sm">
+          <a 
+            href="#pricing"
+            className="px-8 py-4 bg-slate-900 text-white rounded-xl font-bold transition-all hover:bg-brand-indigo flex items-center gap-2 group text-sm"
+          >
             Select A Package
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-          </button>
-          <button className="px-8 py-4 bg-slate-50 text-slate-600 border border-slate-200 rounded-xl font-bold hover:bg-slate-100 transition-all text-sm">
+          </a>
+          <a 
+            href="#portfolio"
+            className="px-8 py-4 bg-slate-50 text-slate-600 border border-slate-200 rounded-xl font-bold hover:bg-slate-100 transition-all text-sm"
+          >
             View Recent Work
-          </button>
+          </a>
         </div>
       </motion.div>
       

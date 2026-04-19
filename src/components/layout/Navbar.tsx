@@ -11,14 +11,14 @@ export default function Sidebar() {
       links: [
         { name: 'Overview', href: '#hero', icon: LayoutGrid },
         { name: 'Our Mission', href: '#about', icon: Target },
-        { name: 'Core Values', href: '#about', icon: Shield },
+        { name: 'Portfolio', href: '#portfolio' },
       ]
     },
     {
       title: 'Solutions',
       links: [
         { name: 'Enterprise E-Com', href: '#services' },
-        { name: 'Sector Consulting', href: '#services' },
+        { name: 'Service Packages', href: '#pricing' },
         { name: 'UX/UI Design', href: '#services' },
       ]
     }
