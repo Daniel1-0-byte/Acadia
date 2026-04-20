@@ -82,6 +82,7 @@ export default function PortfolioSection() {
                   alt={item.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
                 />
               </div>
 
@@ -110,7 +111,7 @@ export default function PortfolioSection() {
                   onClick={() => setSelectedProject(item)}
                   className="mt-8 w-full py-3 bg-slate-50 group-hover:bg-brand-primary text-slate-900 group-hover:text-white rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2"
                 >
-                  Explore Case Study
+                  Explore
                   <ArrowUpRight size={14} />
                 </button>
               </div>
@@ -171,6 +172,7 @@ export default function PortfolioSection() {
                         alt="Immersive Preview" 
                         className="w-full h-full object-cover group-hover/hero:scale-110 transition-transform duration-[3000ms]"
                         referrerPolicy="no-referrer"
+                        loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent flex flex-col justify-end p-12">
                         <motion.div

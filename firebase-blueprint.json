@@ -1,0 +1,41 @@
+{
+  "entities": {
+    "Inquiry": {
+      "title": "Project Inquiry",
+      "description": "Form submission from potential clients",
+      "type": "object",
+      "properties": {
+        "firmName": {
+          "type": "string",
+          "description": "Name of the inquiring company"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Contact email address"
+        },
+        "inquiryType": {
+          "type": "string",
+          "enum": ["E-commerce Solution", "Platform Optimization", "Digital Strategy"],
+          "description": "Category of inquiry"
+        },
+        "description": {
+          "type": "string",
+          "description": "Project details"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of submission"
+        }
+      },
+      "required": ["firmName", "email", "inquiryType", "description", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/inquiries/{inquiryId}": {
+      "schema": "Inquiry",
+      "description": "Collection of client inquiries"
+    }
+  }
+}

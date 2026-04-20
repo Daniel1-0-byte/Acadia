@@ -101,7 +101,7 @@ export default function TemplateViewer({ item, onExit, onSelect }: TemplateViewe
         <div className="px-8 md:px-20 pb-20">
            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="aspect-square bg-slate-200 rounded-3xl overflow-hidden relative group">
-                <img src={item.image} alt="Feature 1" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 hover:scale-110" referrerPolicy="no-referrer" />
+                <img src={item.image} alt="Feature 1" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 hover:scale-110" referrerPolicy="no-referrer" loading="lazy" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent flex flex-col justify-end p-8 text-white">
                   <div className="text-[10px] font-bold uppercase tracking-widest opacity-60 mb-2">Visual Strategy</div>
                   <div className="text-xl font-bold tracking-tight">Immersive Branding</div>

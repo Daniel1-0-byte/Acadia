@@ -1,0 +1,33 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Global helpers
+    function isSignedIn() { return request.auth != null; }
+    function incoming() { return request.resource.data; }
+    function isValidId(id) { return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$'); }
+
+    // Inquiry validation
+    function isValidInquiry(data) {
+      return data.keys().hasAll(['firmName', 'email', 'inquiryType', 'description', 'createdAt'])
+        && data.keys().size() == 5
+        && data.firmName is string && data.firmName.size() > 0 && data.firmName.size() <= 100
+        && data.email is string && data.email.size() > 0 && data.email.size() <= 100
+        && data.inquiryType in ['E-commerce Solution', 'Platform Optimization', 'Digital Strategy']
+        && data.description is string && data.description.size() > 0 && data.description.size() <= 2000
+        && data.createdAt == request.time;
+    }
+
+    match /inquiries/{inquiryId} {
+      allow create: if isValidId(inquiryId) && isValidInquiry(incoming());
+      
+      // Only allow reading by an administrator if defined. 
+      // For now, these are private submissions.
+      allow read: if false; 
+    }
+  }
+}

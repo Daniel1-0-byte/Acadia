@@ -56,6 +56,7 @@ export default function About() {
                 alt="Digital Craft Illustration" 
                 className="rounded-[2rem] transition-all duration-1000 w-full hover:scale-110"
                 referrerPolicy="no-referrer"
+                loading="lazy"
               />
             </div>
             
