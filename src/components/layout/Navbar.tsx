@@ -72,7 +72,7 @@ export default function Sidebar() {
         <div className="mt-auto pt-8 border-t border-slate-800">
           <h3 className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-3">Our Mission</h3>
           <p className="text-xs text-slate-400 leading-relaxed font-light">
-            To engineer digital experiences that bridge the gap between craftsmanship and high-technology.
+            Architecting high-performance digital systems that turn ambitious visions into scalable realities.
           </p>
           <a 
             href="#contact" 
