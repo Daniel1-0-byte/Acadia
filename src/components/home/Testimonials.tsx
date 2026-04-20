@@ -33,8 +33,11 @@ export default function Testimonials() {
               <img 
                 src={testimonial.avatar} 
                 alt={testimonial.name} 
-                className="w-12 h-12 rounded-2xl grayscale object-cover border border-slate-100"
+                className="w-12 h-12 rounded-2xl object-cover border border-slate-100 shadow-sm"
                 referrerPolicy="no-referrer"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.name)}&background=0F172A&color=fff&bold=true&rounded=true`;
+                }}
               />
               <div>
                 <div className="text-sm font-bold text-slate-900">{testimonial.name}</div>

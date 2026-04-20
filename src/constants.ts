@@ -110,7 +110,7 @@ export const TESTIMONIALS: Testimonial[] = [
     role: 'CEO',
     company: 'Kente Heritage',
     quote: "Acadia didn't just build a website; they engineered a growth engine. Our conversion rate increased by 45% within the first month of launch.",
-    avatar: 'https://picsum.photos/seed/avatar-vector-1/100/100',
+    avatar: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&q=80&w=200&h=200',
   },
   {
     id: '2',
@@ -118,7 +118,7 @@ export const TESTIMONIALS: Testimonial[] = [
     role: 'Operations Director',
     company: 'AgroMind Ghana',
     quote: "The technical precision of their architecture is unmatched. We've scaled to 10k daily orders without a single second of downtime.",
-    avatar: 'https://picsum.photos/seed/avatar-vector-2/100/100',
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200&h=200',
   },
   {
     id: '3',
@@ -126,6 +126,6 @@ export const TESTIMONIALS: Testimonial[] = [
     role: 'Founder',
     company: 'Asanka Delight',
     quote: "Professional, transparent, and incredibly fast. They understood our brand immediately and delivered a platform that feels like fine craftsmanship.",
-    avatar: 'https://picsum.photos/seed/avatar-vector-3/100/100',
+    avatar: 'https://images.unsplash.com/photo-1523824921871-d6f1a15151f1?auto=format&fit=crop&q=80&w=200&h=200',
   },
 ];
