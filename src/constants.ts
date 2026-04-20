@@ -31,7 +31,7 @@ export const PORTFOLIO: PortfolioItem[] = [
     tier: 'Starter',
     title: 'Bistro Express',
     description: 'A clean, single-page site for local eateries focused on fast menu browsing.',
-    image: 'https://picsum.photos/seed/bistro/800/600',
+    image: '/assets/rest-starter.svg',
     features: ['Digital Menu', 'Contact Info', 'Responsive Layout'],
   },
   {
@@ -40,7 +40,7 @@ export const PORTFOLIO: PortfolioItem[] = [
     tier: 'Standard',
     title: 'Gourmet Hub',
     description: 'Multi-page solution with online reservation and feedback system.',
-    image: 'https://picsum.photos/seed/gourmet/800/600',
+    image: '/assets/rest-standard.svg',
     features: ['Table Booking', 'Gallery', 'Customer Reviews'],
   },
   {
@@ -49,7 +49,7 @@ export const PORTFOLIO: PortfolioItem[] = [
     tier: 'Premium',
     title: 'Dining Elite',
     description: 'Enterprise-grade platform with custom loyalty programs and full POS integration.',
-    image: 'https://picsum.photos/seed/dining/800/600',
+    image: '/assets/rest-premium.svg',
     features: ['Loyalty App', 'POS Sync', 'Advanced Analytics'],
   },
   // Groceries
@@ -59,7 +59,7 @@ export const PORTFOLIO: PortfolioItem[] = [
     tier: 'Starter',
     title: 'QuickMark',
     description: 'Basic inventory listing for neighborhood grocery shops.',
-    image: 'https://picsum.photos/seed/market/800/600',
+    image: '/assets/groc-starter.svg',
     features: ['Product Search', 'Opening Hours', 'Simple Cart'],
   },
   {
@@ -68,7 +68,7 @@ export const PORTFOLIO: PortfolioItem[] = [
     tier: 'Premium',
     title: 'FreshFlow Enterprise',
     description: 'AI-driven replenishment and subscription-based delivery platform.',
-    image: 'https://picsum.photos/seed/fresh/800/600',
+    image: '/assets/groc-premium.svg',
     features: ['Auto-reorder', 'Real-time Tracking', 'Bulk Discounts'],
   },
   // Clothing
@@ -78,7 +78,7 @@ export const PORTFOLIO: PortfolioItem[] = [
     tier: 'Standard',
     title: 'Urban Stitch',
     description: 'Elegant e-commerce for emerging fashion brands.',
-    image: 'https://picsum.photos/seed/fashion/800/600',
+    image: '/assets/cloth.svg',
     features: ['Size Guides', 'Lookbook', 'Payment Integration'],
   },
   // Electrical
@@ -88,7 +88,7 @@ export const PORTFOLIO: PortfolioItem[] = [
     tier: 'Premium',
     title: 'VoltConsult Pro',
     description: 'Client dashboard and project management portal for electrical firms.',
-    image: 'https://picsum.photos/seed/tech/800/600',
+    image: '/assets/elec.svg',
     features: ['Client Portal', 'Document Signing', 'Milestone Tracking'],
   },
   // Mechanical
@@ -98,7 +98,7 @@ export const PORTFOLIO: PortfolioItem[] = [
     tier: 'Standard',
     title: 'GearWorks',
     description: 'Service scheduling and parts catalog for workshops.',
-    image: 'https://picsum.photos/seed/workshop/800/600',
+    image: '/assets/mech.svg',
     features: ['Service Booking', 'Parts Inventory', 'Quotes System'],
   },
 ];
@@ -110,7 +110,7 @@ export const TESTIMONIALS: Testimonial[] = [
     role: 'CEO',
     company: 'Urban Stitch',
     quote: "Acadia didn't just build a website; they engineered a growth engine. Our conversion rate increased by 45% within the first month of launch.",
-    avatar: 'https://picsum.photos/seed/sarah/100/100',
+    avatar: 'https://picsum.photos/seed/avatar-vector-1/100/100',
   },
   {
     id: '2',
@@ -118,7 +118,7 @@ export const TESTIMONIALS: Testimonial[] = [
     role: 'Operations Director',
     company: 'FreshFlow Enterprise',
     quote: "The technical precision of their architecture is unmatched. We've scaled to 10k daily orders without a single second of downtime.",
-    avatar: 'https://picsum.photos/seed/marcus/100/100',
+    avatar: 'https://picsum.photos/seed/avatar-vector-2/100/100',
   },
   {
     id: '3',
@@ -126,6 +126,6 @@ export const TESTIMONIALS: Testimonial[] = [
     role: 'Founder',
     company: 'Bistro Express',
     quote: "Professional, transparent, and incredibly fast. They understood our brand immediately and delivered a platform that feels like fine craftsmanship.",
-    avatar: 'https://picsum.photos/seed/elena/100/100',
+    avatar: 'https://picsum.photos/seed/avatar-vector-3/100/100',
   },
 ];

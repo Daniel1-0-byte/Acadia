@@ -1,0 +1,16 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#F8FAFC"/>
+  <!-- Circuit Nodes -->
+  <circle cx="200" cy="200" r="10" fill="#F97316"/>
+  <circle cx="600" cy="200" r="10" fill="#F97316"/>
+  <circle cx="400" cy="450" r="15" fill="#F97316"/>
+  <!-- Lines -->
+  <path d="M200 200V300H400V450" stroke="#0F172A" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M600 200V300H400" stroke="#0F172A" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M200 200H600" stroke="#0F172A" stroke-width="2" stroke-dasharray="10 10" opacity="0.3"/>
+  <!-- Component -->
+  <rect x="350" y="270" width="100" height="60" rx="4" fill="#0F172A"/>
+  <path d="M370 285H430M370 300H410M370 315H430" stroke="#F97316" stroke-width="2" stroke-linecap="round"/>
+  <!-- Glow -->
+  <circle cx="400" cy="450" r="50" fill="#F97316" fill-opacity="0.1"/>
+</svg>

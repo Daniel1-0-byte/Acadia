@@ -1,0 +1,13 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#F8FAFC"/>
+  <!-- Clothing Rack -->
+  <path d="M150 150H650M150 150V520M650 150V520" stroke="#0F172A" stroke-width="12" stroke-linecap="round"/>
+  <rect x="130" y="520" width="40" height="10" rx="5" fill="#0F172A"/>
+  <rect x="630" y="520" width="40" height="10" rx="5" fill="#0F172A"/>
+  <!-- Hangers and Clothes -->
+  <path d="M250 150V200L200 450H300L250 200Z" fill="#F97316" fill-opacity="0.2" stroke="#0F172A" stroke-width="2"/>
+  <path d="M400 150V200L350 480H450L400 200Z" fill="#0F172A" fill-opacity="0.1" stroke="#0F172A" stroke-width="2"/>
+  <path d="M550 150V200L500 400H600L550 200Z" fill="#64748B" fill-opacity="0.2" stroke="#0F172A" stroke-width="2"/>
+  <!-- Mirror -->
+  <rect x="700" y="200" width="40" height="300" rx="20" fill="#E2E8F0" stroke="#0F172A" stroke-width="4"/>
+</svg>

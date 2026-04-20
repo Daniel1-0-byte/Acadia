@@ -52,9 +52,9 @@ export default function About() {
           >
             <div className="bg-white p-2 rounded-[2.5rem] shadow-2xl shadow-slate-200 overflow-hidden">
                <img 
-                src="https://picsum.photos/seed/arch-new/1200/800" 
-                alt="Architecture" 
-                className="rounded-[2rem] grayscale hover:grayscale-0 transition-all duration-1000 w-full hover:scale-110"
+                src="/assets/studio.svg" 
+                alt="Digital Craft Illustration" 
+                className="rounded-[2rem] transition-all duration-1000 w-full hover:scale-110"
                 referrerPolicy="no-referrer"
               />
             </div>

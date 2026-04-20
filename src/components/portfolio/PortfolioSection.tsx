@@ -80,7 +80,7 @@ export default function PortfolioSection() {
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale hover:grayscale-0"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   referrerPolicy="no-referrer"
                 />
               </div>
@@ -169,7 +169,7 @@ export default function PortfolioSection() {
                       <img 
                         src={selectedProject.image} 
                         alt="Immersive Preview" 
-                        className="w-full h-full object-cover opacity-60 group-hover/hero:scale-110 transition-transform duration-[3000ms]"
+                        className="w-full h-full object-cover group-hover/hero:scale-110 transition-transform duration-[3000ms]"
                         referrerPolicy="no-referrer"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent flex flex-col justify-end p-12">
