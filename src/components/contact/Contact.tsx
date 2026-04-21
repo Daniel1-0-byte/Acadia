@@ -17,32 +17,52 @@ export default function Contact() {
     description: ''
   });
 
-  const validateForm = () => {
-    const newErrors: Record<string, string> = {};
+  const validateField = (name: string, value: string) => {
+    let error = '';
     
-    if (!formData.firmName.trim()) {
-      newErrors.firmName = 'Firm name is required';
-    } else if (formData.firmName.length > 100) {
-      newErrors.firmName = 'Firm name must be under 100 characters';
+    if (name === 'firmName') {
+      if (!value.trim()) {
+        error = 'Firm name is required';
+      } else if (value.length > 100) {
+        error = 'Firm name must be under 100 characters';
+      }
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email address is required';
-    } else if (!emailRegex.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address';
+    if (name === 'email') {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!value.trim()) {
+        error = 'Email address is required';
+      } else if (!emailRegex.test(value)) {
+        error = 'Please enter a valid email address';
+      }
     }
 
-    if (!formData.description.trim()) {
-      newErrors.description = 'Description is required';
-    } else if (formData.description.length < 10) {
-      newErrors.description = 'Please provide a bit more detail (min 10 characters)';
-    } else if (formData.description.length > 2000) {
-      newErrors.description = 'Description must be under 2000 characters';
+    if (name === 'description') {
+      if (!value.trim()) {
+        error = 'Description is required';
+      } else if (value.length < 10) {
+        error = 'Please provide a bit more detail (min 10 characters)';
+      } else if (value.length > 2000) {
+        error = 'Description must be under 2000 characters';
+      }
     }
 
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    setErrors(prev => ({ ...prev, [name]: error }));
+    return !error;
+  };
+
+  const validateForm = () => {
+    const isFirmNameValid = validateField('firmName', formData.firmName);
+    const isEmailValid = validateField('email', formData.email);
+    const isDescriptionValid = validateField('description', formData.description);
+    
+    return isFirmNameValid && isEmailValid && isDescriptionValid;
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    validateField(name, value);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -55,11 +75,19 @@ export default function Contact() {
     setStatus('sending');
     setErrorMessage('');
 
+    // Increase safety timeout to 30s to allow for Firebase cold starts
+    const timeoutPromise = new Promise((_, reject) => 
+      setTimeout(() => reject(new Error('TRANSMISSION_TIMEOUT')), 30000)
+    );
+
     try {
-      await addDoc(collection(db, 'inquiries'), {
+      const submissionPromise = addDoc(collection(db, 'inquiries'), {
         ...formData,
         createdAt: serverTimestamp()
       });
+
+      // Show "Transmitting..." longer if needed
+      await Promise.race([submissionPromise, timeoutPromise]);
       
       setSubmittedFirmName(formData.firmName);
       setStatus('success');
@@ -70,10 +98,17 @@ export default function Contact() {
         description: ''
       });
       setErrors({});
-    } catch (error) {
-      console.error('Firestore Error:', error);
+    } catch (error: any) {
+      console.error('Firestore Submission Error:', error);
       setStatus('error');
-      setErrorMessage('Transmission failure. Please verify your connection and try again.');
+      
+      if (error.message === 'TRANSMISSION_TIMEOUT') {
+        setErrorMessage('Network timeout. Please check your connectivity or try again later.');
+      } else if (error.code === 'permission-denied') {
+        setErrorMessage('Security rejection. Please ensure all fields meet the requirements.');
+      } else {
+        setErrorMessage('Transmission failure. Our servers are currently unreachable.');
+      }
     }
   };
 
@@ -140,11 +175,9 @@ export default function Contact() {
                   <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest pl-1">Firm Name</label>
                   <input 
                     type="text" 
+                    name="firmName"
                     value={formData.firmName}
-                    onChange={(e) => {
-                      setFormData(prev => ({ ...prev, firmName: e.target.value }));
-                      if (errors.firmName) setErrors(prev => ({ ...prev, firmName: '' }));
-                    }}
+                    onChange={handleChange}
                     className={`w-full bg-white border ${errors.firmName ? 'border-red-400' : 'border-slate-200'} rounded-xl px-5 py-3 text-sm text-slate-900 focus:outline-none focus:border-brand-primary transition-colors`}
                     placeholder="Acme Corp"
                   />
@@ -154,11 +187,9 @@ export default function Contact() {
                   <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest pl-1">Email Address</label>
                   <input 
                     type="email" 
+                    name="email"
                     value={formData.email}
-                    onChange={(e) => {
-                      setFormData(prev => ({ ...prev, email: e.target.value }));
-                      if (errors.email) setErrors(prev => ({ ...prev, email: '' }));
-                    }}
+                    onChange={handleChange}
                     className={`w-full bg-white border ${errors.email ? 'border-red-400' : 'border-slate-200'} rounded-xl px-5 py-3 text-sm text-slate-900 focus:outline-none focus:border-brand-primary transition-colors`}
                     placeholder="jane@acme.com"
                   />
@@ -168,8 +199,9 @@ export default function Contact() {
               <div className="space-y-2">
                 <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest pl-1">Inquiry Type</label>
                 <select 
+                  name="inquiryType"
                   value={formData.inquiryType}
-                  onChange={(e) => setFormData(prev => ({ ...prev, inquiryType: e.target.value }))}
+                  onChange={handleChange}
                   className="w-full bg-white border border-slate-200 rounded-xl px-5 py-3 text-sm text-slate-900 focus:outline-none focus:border-brand-primary transition-colors appearance-none cursor-pointer"
                 >
                   <option>E-commerce Solution</option>
@@ -181,11 +213,9 @@ export default function Contact() {
                 <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest pl-1">Description</label>
                 <textarea 
                   rows={4}
+                  name="description"
                   value={formData.description}
-                  onChange={(e) => {
-                    setFormData(prev => ({ ...prev, description: e.target.value }));
-                    if (errors.description) setErrors(prev => ({ ...prev, description: '' }));
-                  }}
+                  onChange={handleChange}
                   className={`w-full bg-white border ${errors.description ? 'border-red-400' : 'border-slate-200'} rounded-xl px-5 py-3 text-sm text-slate-900 focus:outline-none focus:border-brand-primary transition-colors`}
                   placeholder="Tell us about your mission..."
                 />

@@ -24,7 +24,13 @@ export default function PortfolioSection() {
 
   return (
     <section id="portfolio" className="p-10 md:p-16 bg-white overflow-hidden border-t border-slate-50">
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16"
+      >
         <div>
           <h2 className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.3em] mb-4">Portfolios</h2>
           <h3 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">Design Options.</h3>
@@ -38,7 +44,7 @@ export default function PortfolioSection() {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-4 py-1.5 rounded-lg text-[10px] font-bold tracking-wider uppercase transition-all border ${
                   activeCategory === cat 
-                    ? 'bg-slate-900 border-slate-900 text-white' 
+                    ? 'bg-slate-900 border-slate-900 text-white shadow-lg shadow-slate-900/10' 
                     : 'bg-slate-50 border-slate-200 text-slate-500 hover:border-slate-300'
                 }`}
               >
@@ -62,18 +68,20 @@ export default function PortfolioSection() {
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 min-h-[400px]">
         <AnimatePresence mode="popLayout">
-          {filteredItems.map((item) => (
+          {filteredItems.map((item, index) => (
             <motion.div
               layout
               key={item.id}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.3 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
               className="group relative bg-white rounded-2xl overflow-hidden border border-slate-100 hover:border-brand-primary/20 transition-all hover:shadow-xl hover:shadow-slate-200/50"
             >
               <div className="aspect-[16/10] overflow-hidden">

@@ -12,6 +12,7 @@ import PricingTiers from './components/pricing/PricingTiers';
 import About from './components/about/About';
 import Contact from './components/contact/Contact';
 import Testimonials from './components/home/Testimonials';
+import BackToTop from './components/ui/BackToTop';
 
 export default function App() {
   return (
@@ -29,6 +30,7 @@ export default function App() {
         </main>
         <Footer />
       </div>
+      <BackToTop />
     </div>
   );
 }

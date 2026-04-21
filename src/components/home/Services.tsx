@@ -4,13 +4,19 @@ import { SERVICES } from '../../constants';
 
 export default function Services() {
   return (
-    <section id="services" className="p-10 md:p-16 bg-white">
-      <div className="mb-16">
+    <section id="services" className="p-10 md:p-16 bg-white overflow-hidden">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="mb-16"
+      >
         <h2 className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.3em] mb-4">Core Capabilities</h2>
         <h3 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
           Sector-Specific <br /> Expertise.
         </h3>
-      </div>
+      </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {SERVICES.map((service, index) => {
@@ -18,10 +24,14 @@ export default function Services() {
           return (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.05 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ 
+                duration: 0.5, 
+                delay: index * 0.1,
+                ease: [0.21, 0.47, 0.32, 0.98] 
+              }}
               className="group p-8 rounded-2xl bg-slate-50 border border-slate-200 hover:border-brand-primary/30 transition-all hover:bg-white hover:shadow-xl hover:shadow-brand-primary/5"
             >
               <div className="w-12 h-12 rounded-xl bg-brand-primary-light flex items-center justify-center mb-6 group-hover:bg-brand-primary transition-colors">

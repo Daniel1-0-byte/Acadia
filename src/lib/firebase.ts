@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
+import { initializeFirestore } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 
 import firebaseConfigJson from '../../firebase-applet-config.json';
@@ -20,5 +20,9 @@ const databaseId = import.meta.env.VITE_FIREBASE_FIRESTORE_DATABASE_ID ||
                    firebaseConfigJson.firestoreDatabaseId || 
                    '(default)';
 
-export const db = getFirestore(app, databaseId);
+// Force long-polling to ensure connectivity in proxied/iframe environments like AI Studio
+export const db = initializeFirestore(app, {
+  experimentalForceLongPolling: true,
+}, databaseId);
+
 export const auth = getAuth(app);
